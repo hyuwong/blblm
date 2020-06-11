@@ -1,0 +1,33 @@
+---
+title: "Project Report"
+author: "Hong Yu Wong"
+date: "6/3/2020"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Vignette Title}
+  %\VignetteEngine{knitr::rmarkdown}
+  \usepackage[utf8]{inputenc}
+---
+
+This is the final project's project report. I will be explaining all of the work doen to this project.
+
+********
+
+* First I try to implement codes that made it possible to use more than just one CPU. Instead, the function will now detect the amount of cores available to the users' device and automatically allocated majority of the cores for computing the functions.
+
+```
+# clusters
+no_cores <- detectCores() - 1
+cl <- makeCluster(n_cores)
+```
+
+* Second I added in codes that allow users to input a list of files of datasets instead of loading the whole dataset. As long as the datasets in stores in the file folder, the function will be able to locate the multiple datasets and input them for computations
+
+```
+# inputing datasets into a list
+data_list <- read_csv(., col_types = cols())
+```
+
+* After editing the codes, I also created a new test files for the function along with documentation that shows how the functions works and gives example to the users. (Description and Roxygen Skeleton)
+
+* Lastly, I check to make sure that my function passed the devtools::check() process and created a test file that took an example of the function and check it's accuracy. (testthat functions)

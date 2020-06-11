@@ -1,12 +1,11 @@
 Package: blblm
 Type: Package
-Title: What the Package Does (Title Case)
+Title: Bag of little bootstraps for linear regression model
 Version: 0.1.0
-Author: Who wrote it
-Maintainer: The package maintainer <yourself@somewhere.net>
-Description: More about what it does (maybe more than one line)
-    Use four spaces when indenting paragraphs within the Description.
-License: What license is it under?
+Author: Randy Lai (edited by Hong Yu Wong)
+Maintainer: The package maintainer <hyuwong@ucdavis.edu>
+Description: This package is able to take a dataset or a list of datasets and compute several results using little bag bootstraping. These result includes computations of best fit model, coefficient, sigma, upper and lower bound, and predictions.
+License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true
 Suggests: 
@@ -15,4 +14,4 @@ Imports:
     purrr,
     magrittr
 Roxygen: list(markdown = TRUE)
-RoxygenNote: 7.0.2
+RoxygenNote: 7.1.0

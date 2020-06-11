@@ -10,13 +10,33 @@
 # from https://github.com/jennybc/googlesheets/blob/master/R/googlesheets.R
 utils::globalVariables(c("."))
 
-
+#' @param database
+#'
+#' @return computations of best fit model, coefficient, sigma, upper and lower bound, and predictions
 #' @export
+#'
+#' @example
+#' fit <- blblm(mpg ~ wt * hp, data = mtcars, m = 3, B = 100)
+#' coef(fit)
+#' sigma(fit)
+
+library(parallel)
+
+file_names <- file.path("files", list.files("files"))
+data <- file_names %>% map(~ {
+  data_list <- read_csv(., col_types = cols())})
+#allo for use to input list of datasets
+
+no_cores <- detectCores() - 1
+
 blblm <- function(formula, data, m = 10, B = 5000) {
+  cl <- makeCluster(n_cores)
+  #added for parallelization option
   data_list <- split_data(data, m)
   estimates <- map(
     data_list,
     ~ lm_each_subsample(formula = formula, data = ., n = nrow(data), B = B))
+  stopCluster(cl)
   res <- list(estimates = estimates, formula = formula)
   class(res) <- "blblm"
   invisible(res)

@@ -4,10 +4,9 @@
 \name{blblm-package}
 \alias{blblm}
 \alias{blblm-package}
-\title{blblm: What the Package Does (Title Case)}
+\title{blblm: Bag of little bootstraps for linear regression model}
 \description{
-More about what it does (maybe more than one line)
-    Use four spaces when indenting paragraphs within the Description.
+This package is able to take a dataset or a list of datasets and compute several results using little bag bootstraping. These result includes computations of best fit model, coefficient, sigma, upper and lower bound, and predictions.
 }
 \details{
 Linear Regression with Little Bag of Bootstraps
